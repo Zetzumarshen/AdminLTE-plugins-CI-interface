@@ -1,0 +1,21 @@
+{
+  "name": "AdminLTE-plugins-CI-interface",
+  "homepage": "https://github.com/Zetzumarshen/AdminLTE-plugins-CI-interface",
+  "authors": [
+    "dot_asp <Zetzumarshen@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AdminLTE": "adminlte#^2.3.6",
+    "morris.js": "morrisjs#^0.5.1"
+  }
+}

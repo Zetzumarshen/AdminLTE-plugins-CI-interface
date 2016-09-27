@@ -17,7 +17,7 @@ class Morris_Line
     var $labels = NULL;
 
     /**
-     * @var PDOStatement
+     * @var CI_DB_result
      */
     var $data_set;
 
@@ -34,21 +34,21 @@ class Morris_Line
     protected function set_xKey()
     {
         // set xKey using returned pdo set with column numbers > 0
-        $this->xKey = $this->data_set->getColumnMeta(0);
+        $this->xKey = $this->data_set->list_fields()[0];
     }
 
     protected function set_yKeys()
     {
         // set yKeys using returned pdo set with column numbers > 0
-        for ($i = 1; $i < $this->data_set->columnCount(); $i++) {
-            $col = $this->data_set->getColumnMeta($i);
-            $this->yKeys[] = $col['name'];
+        $fields = $this->data_set->list_fields();
+        for ($i = 1; $i < sizeof($fields); $i++) {
+            $this->yKeys[] = $fields[$i];
         }
     }
 
     protected function set_data()
     {
-        $this->data = $this->data_set->fetchAll();
+        $this->data = $this->data_set->result();
     }
 
     public function set_labels($labels = NULL)
@@ -75,6 +75,6 @@ class Morris_Line
         // unset the data object
         unset($this->data_set);
 
-        return json_encode($this);
+        return json_encode($this, JSON_PRETTY_PRINT);
     }
 }

@@ -77,7 +77,7 @@ $db['default'] = array(
 	'dsn'	=> 'mysql:hostname=localhost;port=3306;dbname=world',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => '1234',
+	'password' => '',
 	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
